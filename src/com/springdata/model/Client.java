@@ -1,11 +1,27 @@
 package com.springdata.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "client")
 public class Client {
 
+	//attributes
+	@Id
+	@Column(name = "client_id")
 	private long id;
+	@Column(name = "client_name")
 	private String name;
+	@Column(name = "client_address")
 	private String address;
-	private int age;
+	@Column(name = "client_phone")
+	private long phone;
+	
+	
+	//Getters & Setters
 	public long getId() {
 		return id;
 	}
@@ -24,11 +40,11 @@ public class Client {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getAge() {
-		return age;
+	public long getPhone() {
+		return phone;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setPhone(long phone) {
+		this.phone = phone;
 	}
 	
 	
