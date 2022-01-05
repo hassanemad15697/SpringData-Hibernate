@@ -20,6 +20,24 @@ public class main {
 		
 		Session session=factory.getCurrentSession();
 		
+		Client client=new Client();
+		client.setId(2);
+		client.setName("Amro Askar");
+		client.setAddress("Milano");
+		client.setPhone(01050732153);
+		
+		try {
+			session.beginTransaction();
+
+			session.save(client);
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.toString());
+		} finally {
+			session.close();
+		}
 		
 		/*final String host="jdbc:mysql://localhost/employee";
 		final String username = "DBHassan";
