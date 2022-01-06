@@ -1,9 +1,5 @@
 package com.springdata;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,7 +8,7 @@ import com.springdata.model.Client;
 
 public class main {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args){
 		
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
 													.addAnnotatedClass(Client.class)
@@ -20,11 +16,7 @@ public class main {
 		
 		Session session=factory.getCurrentSession();
 		
-		Client client=new Client();
-		client.setId(2);
-		client.setName("Amro Askar");
-		client.setAddress("Milano");
-		client.setPhone(01050732153);
+		Client client=new Client("Hassan Askar","Milano","01050732153");
 		
 		try {
 			session.beginTransaction();
