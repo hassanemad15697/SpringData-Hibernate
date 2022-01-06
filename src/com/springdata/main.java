@@ -8,21 +8,25 @@ import com.springdata.model.Client;
 
 public class main {
 
-	public static void main(String[] args){
-		
-		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-													.addAnnotatedClass(Client.class)
-													.buildSessionFactory();
-		
-		Session session=factory.getCurrentSession();
-		
-		Client client=new Client("Hassan Askar","Milano","01050732153");
-		
+	public static void main(String[] args) {
+
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Client.class)
+				.buildSessionFactory();
+
+		Session session = factory.getCurrentSession();
+		// adding values to client
+		// Client client=new Client("Hassan Askar","Milano","01050732153");
+
 		try {
 			session.beginTransaction();
+			// saving data to database
+			// session.save(client);
 
-			session.save(client);
-
+			// getting data from database
+			Client client1 = session.get(Client.class, 1);
+			System.out.println(client1.getName());
+			Client client2 = session.get(Client.class, 2);
+			System.out.println(client2.getName());
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -30,14 +34,13 @@ public class main {
 		} finally {
 			session.close();
 		}
-		
-		/*final String host="jdbc:mysql://localhost/employee";
-		final String username = "DBHassan";
-		final String password="ELKBEER36647126358#";
-		Connection conn;
-		conn = DriverManager.getConnection(host, username, password);
-        System.out.println("Connected!");
-        conn.close();*/
+
+		/*
+		 * final String host="jdbc:mysql://localhost/employee"; final String username =
+		 * "DBHassan"; final String password="ELKBEER36647126358#"; Connection conn;
+		 * conn = DriverManager.getConnection(host, username, password);
+		 * System.out.println("Connected!"); conn.close();
+		 */
 	}
 
 }

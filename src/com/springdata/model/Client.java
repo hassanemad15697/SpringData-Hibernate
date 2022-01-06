@@ -11,20 +11,22 @@ import javax.persistence.Table;
 @Table(name = "clients")
 public class Client {
 
-	//attributes
+	// attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private long client_id;
+	private int client_id;
 	@Column(name = "client_name")
 	private String name;
 	@Column(name = "client_address")
 	private String address;
 	@Column(name = "client_phone")
 	private String phone;
-	
-	
-	//Getters & Setters
+
+	// constructor
+	public Client() {
+
+	}
 
 	public Client(String name, String address, String phone) {
 		this.name = name;
@@ -32,8 +34,29 @@ public class Client {
 		this.phone = phone;
 	}
 
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	
-	
-	
+
 }
