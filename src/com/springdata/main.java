@@ -2,10 +2,14 @@ package com.springdata;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 import com.springdata.model.Client;
 
@@ -51,7 +55,7 @@ public class main {
 			//// GETTING DATA TABLE BY Start with , end with or anywhere CONDITION
 			// start with s% s id a letter
 			// end with %s
-			// anywhere %s% 
+			// anywhere %s%
 //			List<Client> clients=session.createQuery("from Client c where c.name Like '%h%'").list();
 //			
 
@@ -67,21 +71,41 @@ public class main {
 
 			// deleting database values by session.createQuery
 //			session.createQuery("delete from Client where name = 'Israa Emad'").executeUpdate();
+
+//			Query q1 = session.createQuery("select Max(id) from Client");
+//			Query q2 = session.createQuery("select Min(id) from Client");
+//			Query q3 = session.createQuery("select sum(id) from Client");
+//			Query q4 = session.createQuery("select avg(id) from Client");
+//			Query q5 = session.createQuery("select count(phone) from Client");
+//			Query q6 = session.createQuery("select count(distinct phone) from Client");
+//			
+//			
+//			System.out.println(q1.list().get(0));
+//			System.out.println(q2.list().get(0));
+//			System.out.println(q3.list().get(0));
+//			System.out.println(q4.list().get(0));
+//			System.out.println(q5.list().get(0));
+//			System.out.println(q6.list().get(0));
+//			
+
+			Criteria criteria=session.createCriteria(Client.class);
+			//to get  data by specific range
+//			criteria.setFirstResult(0);
+//			criteria.setMaxResults(4);
 			
-			Query q1 = session.createQuery("select Max(id) from Client");
-			Query q2 = session.createQuery("select Min(id) from Client");
-			Query q3 = session.createQuery("select sum(id) from Client");
-			Query q4 = session.createQuery("select avg(id) from Client");
-			Query q5 = session.createQuery("select count(phone) from Client");
-			Query q6 = session.createQuery("select count(distinct phone) from Client");
-			
-			
-			System.out.println(q1.list().get(0));
-			System.out.println(q2.list().get(0));
-			System.out.println(q3.list().get(0));
-			System.out.println(q4.list().get(0));
-			System.out.println(q5.list().get(0));
-			System.out.println(q6.list().get(0));
+			//get data from specific cloumn and specific raw
+//			criteria.add(Restrictions.in("id", 2));
+			//check if there is a raw has Null value?
+//			criteria.add(Restrictions.isNotNull("phone"));
+			//check if there is a raw started with "a" letter
+//			criteria.add(Restrictions.like("name", "a",MatchMode.START));
+			//
+			criteria.add(Restrictions.eq("name", "Hassan Emad"));
+			List<Client> clients=criteria.list();
+			for(Client client : clients)
+			{
+				System.out.println(client.getName());
+			}
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
