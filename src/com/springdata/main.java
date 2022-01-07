@@ -44,7 +44,11 @@ public class main {
 			
 			
 			//getting all table data
-			List<Client> clients=session.createQuery("from Client").list();
+//			List<Client> clients=session.createQuery("from Client").list();
+			
+			//getting data table 
+			List<Client> clients=session.createQuery("from Client c where c.phone = '01550732153'").list();
+
 			//showing getted data
 			for(Client client : clients)
 			{
