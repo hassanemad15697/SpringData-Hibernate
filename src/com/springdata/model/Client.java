@@ -14,8 +14,8 @@ public class Client {
 	// attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private int client_id;
+	@Column(name = "client_id")
+	private int id;
 	@Column(name = "client_name")
 	private String name;
 	@Column(name = "client_address")
@@ -32,8 +32,8 @@ public class Client {
 		this.address = address;
 		this.phone = phone;
 	}
-	public Client(int client_id,String name, String address, String phone) {
-		this.client_id=client_id;
+	public Client(int id,String name, String address, String phone) {
+		this.id=id;
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
@@ -63,12 +63,12 @@ public class Client {
 		this.phone = phone;
 	}
 
-	public int getClient_id() {
-		return client_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setClient_id(int client_id) {
-		this.client_id = client_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 

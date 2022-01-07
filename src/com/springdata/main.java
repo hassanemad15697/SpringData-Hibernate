@@ -1,5 +1,7 @@
 package com.springdata;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -35,9 +37,24 @@ public class main {
 //			
 			
 			//deleting data from the database
-			Client client=new Client();
-			client.setClient_id(9);
-			session.delete(client);
+//			Client client=new Client();
+//			client.setId(9);
+//			session.delete(client);
+			
+			
+			
+			//getting all table data
+			List<Client> clients=session.createQuery("from Client").list();
+			//showing getted data
+			for(Client client : clients)
+			{
+				System.out.println(client.getName());
+			}
+			
+			
+			
+			
+			
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
