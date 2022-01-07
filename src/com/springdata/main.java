@@ -30,36 +30,43 @@ public class main {
 //			System.out.println(client1.getName());
 //			Client client2 = session.get(Client.class, 2);
 //			System.out.println(client2.getName());
-			
-			//updating data in database
+
+			// updating data in database
 //			Client client = new Client(2,"Hassan Emad", "Cairo", "01550732153");
 //			session.update(client);
 //			
-			
-			//deleting data from the database
+
+			// deleting data from the database
 //			Client client=new Client();
 //			client.setId(9);
 //			session.delete(client);
-			
-			
-			
-			//getting all table data
-//			List<Client> clients=session.createQuery("from Client").list();
-			
-			//getting data table 
-			List<Client> clients=session.createQuery("from Client c where c.phone = '01550732153'").list();
 
-			//showing getted data
-			for(Client client : clients)
-			{
-				System.out.println(client.getName());
-			}
-			
-			
-			
-			
-			
-			
+			// getting all table data
+//			List<Client> clients=session.createQuery("from Client").list();
+
+			// GETTING DATA TABLE BY CONDITION
+//			List<Client> clients=session.createQuery("from Client c where c.phone = '01550732153'").list();
+
+			//// GETTING DATA TABLE BY Start with , end with or anywhere CONDITION
+			// start with s% s id a letter
+			// end with %s
+			// anywhere %s%
+//			List<Client> clients=session.createQuery("from Client c where c.name Like '%h%'").list();
+//			
+
+			// showing getted data
+//			for(Client client : clients)
+//			{
+//				System.out.println(client.getName());
+//			}
+//			
+
+			// updaing database values by session.createQuery
+//			session.createQuery("update Client set phone ='01123456789' where name = 'Israa Emad'").executeUpdate();
+
+			// deleting database values by session.createQuery
+			session.createQuery("delete from Client where name = 'Israa Emad'").executeUpdate();
+
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
