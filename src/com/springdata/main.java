@@ -20,7 +20,8 @@ public class main {
 		try {
 			session.beginTransaction();
 			// saving data to database
-			// session.save(client);
+//			Client client = new Client("Hager Emad", "Italy", "01550732153");
+//			 session.save(client);
 
 			// getting data from database
 //			Client client1 = session.get(Client.class, 1);
@@ -29,8 +30,14 @@ public class main {
 //			System.out.println(client2.getName());
 			
 			//updating data in database
-			Client client = new Client(2,"Hassan Emad", "Cairo", "01550732153");
-			session.update(client);
+//			Client client = new Client(2,"Hassan Emad", "Cairo", "01550732153");
+//			session.update(client);
+//			
+			
+			//deleting data from the database
+			Client client=new Client();
+			client.setClient_id(9);
+			session.delete(client);
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
