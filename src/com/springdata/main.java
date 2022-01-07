@@ -2,6 +2,7 @@ package com.springdata;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -65,8 +66,23 @@ public class main {
 //			session.createQuery("update Client set phone ='01123456789' where name = 'Israa Emad'").executeUpdate();
 
 			// deleting database values by session.createQuery
-			session.createQuery("delete from Client where name = 'Israa Emad'").executeUpdate();
-
+//			session.createQuery("delete from Client where name = 'Israa Emad'").executeUpdate();
+			
+			Query q1 = session.createQuery("select Max(id) from Client");
+			Query q2 = session.createQuery("select Min(id) from Client");
+			Query q3 = session.createQuery("select sum(id) from Client");
+			Query q4 = session.createQuery("select avg(id) from Client");
+			Query q5 = session.createQuery("select count(phone) from Client");
+			Query q6 = session.createQuery("select count(distinct phone) from Client");
+			
+			
+			System.out.println(q1.list().get(0));
+			System.out.println(q2.list().get(0));
+			System.out.println(q3.list().get(0));
+			System.out.println(q4.list().get(0));
+			System.out.println(q5.list().get(0));
+			System.out.println(q6.list().get(0));
+			
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
