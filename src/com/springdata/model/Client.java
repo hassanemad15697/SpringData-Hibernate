@@ -27,8 +27,13 @@ public class Client {
 	public Client() {
 
 	}
-
 	public Client(String name, String address, String phone) {
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+	}
+	public Client(int client_id,String name, String address, String phone) {
+		this.client_id=client_id;
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
@@ -56,6 +61,14 @@ public class Client {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public int getClient_id() {
+		return client_id;
+	}
+
+	public void setClient_id(int client_id) {
+		this.client_id = client_id;
 	}
 	
 

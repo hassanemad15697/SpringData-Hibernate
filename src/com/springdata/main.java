@@ -23,10 +23,15 @@ public class main {
 			// session.save(client);
 
 			// getting data from database
-			Client client1 = session.get(Client.class, 1);
-			System.out.println(client1.getName());
-			Client client2 = session.get(Client.class, 2);
-			System.out.println(client2.getName());
+//			Client client1 = session.get(Client.class, 1);
+//			System.out.println(client1.getName());
+//			Client client2 = session.get(Client.class, 2);
+//			System.out.println(client2.getName());
+			
+			//updating data in database
+			Client client = new Client(2,"Hassan Emad", "Cairo", "01550732153");
+			session.update(client);
+			
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
