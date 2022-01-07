@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
@@ -99,8 +100,18 @@ public class main {
 //			criteria.add(Restrictions.isNotNull("phone"));
 			//check if there is a raw started with "a" letter
 //			criteria.add(Restrictions.like("name", "a",MatchMode.START));
-			//
-			criteria.add(Restrictions.eq("name", "Hassan Emad"));
+			//check if there is a raw equals to name = hassan emad 
+//			criteria.add(Restrictions.eq("name", "Hassan Emad"));
+			
+			
+			//selecting many data based on differnet cloumns with OR operation
+			Criterion c1 = Restrictions.eq("address", "Cairo");
+			Criterion c2 = Restrictions.eq("name", "Amro Askar");
+			LogicalExpression expression = Restrictions.or(c1, c2);
+			criteria.add(expression);
+			
+			
+			
 			List<Client> clients=criteria.list();
 			for(Client client : clients)
 			{
