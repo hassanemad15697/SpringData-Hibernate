@@ -50,7 +50,7 @@ public class main {
 			//// GETTING DATA TABLE BY Start with , end with or anywhere CONDITION
 			// start with s% s id a letter
 			// end with %s
-			// anywhere %s%
+			// anywhere %s% 
 //			List<Client> clients=session.createQuery("from Client c where c.name Like '%h%'").list();
 //			
 
