@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.springdata.model.Client;
@@ -105,18 +106,29 @@ public class main {
 			
 			
 			//selecting many data based on differnet cloumns with OR operation
-			Criterion c1 = Restrictions.eq("address", "Cairo");
-			Criterion c2 = Restrictions.eq("name", "Amro Askar");
-			LogicalExpression expression = Restrictions.or(c1, c2);
-			criteria.add(expression);
+//			Criterion c1 = Restrictions.eq("address", "Cairo");
+//			Criterion c2 = Restrictions.eq("name", "Amro Askar");
+//			LogicalExpression expression = Restrictions.or(c1, c2);
+//			criteria.add(expression);
+//			for(Client client : clients)
+//			{
+//				System.out.println(client.getName());
+//			}
 			
 			
+			//gett min value of id
+//			criteria.setProjection(Projections.min("id"));
+			//gett min value of id
+//			criteria.setProjection(Projections.max("id"));
+			//gett min value of id
+//			criteria.setProjection(Projections.avg("id"));
+			//gett min value of id
+//			criteria.setProjection(Projections.count("id"));
+			//gett min value of id
+			criteria.setProjection(Projections.countDistinct("id"));
 			
 			List<Client> clients=criteria.list();
-			for(Client client : clients)
-			{
-				System.out.println(client.getName());
-			}
+			System.out.println(clients.get(0));
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
