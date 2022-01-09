@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,9 @@ public class Person {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "personID")
 	private int id;
-
+	@OneToOne
+	@JoinColumn(name = "dataID")
+	private Data data;
 	@Column(name = "personName")
 	private String name;
 
@@ -34,6 +38,5 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
 }
