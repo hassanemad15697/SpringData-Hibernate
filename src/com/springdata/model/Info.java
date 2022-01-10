@@ -7,25 +7,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "data")
-public class Data {
+@Table(name = "info")
+public class Info {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "dataID")
+	@Column(name = "infoID")
 	private int id;
+	@Column(name = "studentPhone")
+	private String phone;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "studentID")
+	Student student=new Student();
 
-	@Column(name = "personAge")
-	private String age;
-
-	@OneToOne(mappedBy = "data", cascade = CascadeType.ALL)
-	private Person person = new Person();
-
-	
 	public int getId() {
 		return id;
 	}
@@ -34,20 +32,12 @@ public class Data {
 		this.id = id;
 	}
 
-	public String getAge() {
-		return age;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setAge(String age) {
-		this.age = age;
-	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }
