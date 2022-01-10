@@ -1,5 +1,6 @@
 package com.springdata.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -23,7 +24,7 @@ public class Student {
 	private String name;
 
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "student")
-	Set<Info> infos;
+	Set<Info> infos=new HashSet<Info>();
 	
 	
 	
