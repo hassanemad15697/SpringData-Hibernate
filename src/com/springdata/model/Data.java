@@ -1,5 +1,6 @@
 package com.springdata.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +22,9 @@ public class Data {
 	@Column(name = "personAge")
 	private String age;
 
+	@OneToOne(mappedBy = "data", cascade = CascadeType.ALL)
+	private Person person = new Person();
 
-	
-	
 	public int getId() {
 		return id;
 	}
@@ -39,6 +40,13 @@ public class Data {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	
-	
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
 }

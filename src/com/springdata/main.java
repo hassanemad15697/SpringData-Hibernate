@@ -23,13 +23,13 @@ public class main {
 		try {
 			session.beginTransaction();
 
-			Person person=new Person();
-			person.setName("Emad Askar");
-			Data data = new Data();
-			data.setAge("56");
-			person.setData(data);
-			
-			session.save(person);
+//			Person person=new Person();
+//			person.setName("Emad Askar");
+//			Data data = new Data();
+//			data.setAge("56");
+//			person.setData(data);
+//			
+//			session.save(person);
 			
 			
 //			Person person=new Person();
@@ -52,6 +52,16 @@ public class main {
 //			data.setAge("19");
 //			person.setData(data);
 //			session.update(person);
+			
+			//making operation by Data class "onther table"
+			Data data= new Data();
+			data.setAge("50");
+			Person person=new Person();
+			person.setName("Eslah Askar");
+			data.setPerson(person);
+			
+			session.save(data);
+			
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
