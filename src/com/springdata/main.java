@@ -23,7 +23,13 @@ public class main {
 		try {
 			session.beginTransaction();
 
+			Person person=new Person();
+			person.setName("Amro Askar");
+			Data data = new Data();
+			data.setAge("23");
+			person.setData(data);
 			
+			session.save(person);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
