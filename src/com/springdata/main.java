@@ -48,11 +48,16 @@ public class main {
 //			}
 //			
 			//update data to database
+//			Student s=new Student();
+//			s=session.get(Student.class, 2);
+//			s.setName("Amr");
+//			s.getInfos().get(0).setPhone("01115367895");;
+//			session.update(s);
+//			
 			Student s=new Student();
 			s=session.get(Student.class, 2);
-			s.setName("Amr");
-			s.getInfos().get(0).setPhone("01115367895");;
-			session.update(s);
+			session.delete(s);
+			
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
