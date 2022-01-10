@@ -23,13 +23,13 @@ public class main {
 		try {
 			session.beginTransaction();
 
-//			Person person=new Person();
-//			person.setName("Hager Askar");
-//			Data data = new Data();
-//			data.setAge("18");
-//			person.setData(data);
-//			
-//			session.save(person);
+			Person person=new Person();
+			person.setName("Emad Askar");
+			Data data = new Data();
+			data.setAge("56");
+			person.setData(data);
+			
+			session.save(person);
 			
 			
 //			Person person=new Person();
@@ -38,10 +38,20 @@ public class main {
 //			System.out.println(person.getId()+", "+person.getName()+", "+person.getData().getAge());
 			
 			//befor deleting any data you must get it befor
-			Person person=new Person();
-			person.setId(1);
-			person=session.get(Person.class, person.getId());
-			session.delete(person);
+//			Person person=new Person();
+//			person.setId(3);
+//			person=session.get(Person.class, person.getId());
+//			session.delete(person);
+			
+			//updating data on one to one relationship
+//			Person person=new Person();
+//			person.setId(4);
+//			Data data = new Data();
+			//this step is very important
+//			data.setId(person.getId());
+//			data.setAge("19");
+//			person.setData(data);
+//			session.update(person);
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
