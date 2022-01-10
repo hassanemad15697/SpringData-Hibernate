@@ -25,17 +25,25 @@ public class main {
 		try {
 			session.beginTransaction();
 
-			Student s=new Student();
-			s.setName("Hassan");
-			Info info1=new Info();
-			info1.setPhone("01550732153");
-			Info info2=new Info();
-			info2.setPhone("3881298127");
-			s.getInfos().add(info1);
-			s.getInfos().add(info2);
-			info1.setStudent(s);
-			info2.setStudent(s);
-			session.save(s);
+//			Student s=new Student();
+//			s.setName("Amro");
+//			Info info1=new Info();
+//			info1.setPhone("01015367895");
+//			Info info2=new Info();
+//			info2.setPhone("388754126");
+//			s.getInfos().add(info1);
+//			s.getInfos().add(info2);
+//			info1.setStudent(s);
+//			info2.setStudent(s);
+//			session.save(s);
+			
+			Student s = new Student();
+			s=session.get(Student.class, 1);
+			
+			System.out.println(s.getName());
+			for (Info i : s.getInfos()) {
+				System.out.println(i.getPhone());
+			}
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
