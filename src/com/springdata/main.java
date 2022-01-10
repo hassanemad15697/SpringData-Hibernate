@@ -32,11 +32,16 @@ public class main {
 //			session.save(person);
 			
 			
+//			Person person=new Person();
+//			person.setId(1);
+//			person=session.get(Person.class, person.getId());
+//			System.out.println(person.getId()+", "+person.getName()+", "+person.getData().getAge());
+			
+			//befor deleting any data you must get it befor
 			Person person=new Person();
 			person.setId(1);
 			person=session.get(Person.class, person.getId());
-			System.out.println(person.getId()+", "+person.getName()+", "+person.getData().getAge());
-			
+			session.delete(person);
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {
