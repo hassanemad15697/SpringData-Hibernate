@@ -25,6 +25,7 @@ public class main {
 		try {
 			session.beginTransaction();
 
+			//save new data
 //			Student s=new Student();
 //			s.setName("Amro");
 //			Info info1=new Info();
@@ -37,13 +38,22 @@ public class main {
 //			info2.setStudent(s);
 //			session.save(s);
 			
-			Student s = new Student();
-			s=session.get(Student.class, 1);
+			//get data from database
+//			Student s = new Student();
+//			s=session.get(Student.class, 1);
+//			
+//			System.out.println(s.getName());
+//			for (Info i : s.getInfos()) {
+//				System.out.println(i.getPhone());
+//			}
+//			
+			//update data to database
+			Student s=new Student();
+			s=session.get(Student.class, 2);
+			s.setName("Amr");
+			s.getInfos().get(0).setPhone("01115367895");;
+			session.update(s);
 			
-			System.out.println(s.getName());
-			for (Info i : s.getInfos()) {
-				System.out.println(i.getPhone());
-			}
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO: handle exception
