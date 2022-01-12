@@ -39,14 +39,14 @@ public class main {
 //			session.save(s);
 			
 			//get data from database
-//			Student s = new Student();
-//			s=session.get(Student.class, 1);
-//			
-//			System.out.println(s.getName());
-//			for (Info i : s.getInfos()) {
-//				System.out.println(i.getPhone());
-//			}
-//			
+			Student s = new Student();
+			s=session.get(Student.class, 1);
+			
+			System.out.println(s.getName());
+			for (Info i : s.getInfos()) {
+				System.out.println(i.getPhone());
+			}
+			
 			//update data to database
 //			Student s=new Student();
 //			s=session.get(Student.class, 2);
@@ -54,9 +54,10 @@ public class main {
 //			s.getInfos().get(0).setPhone("01115367895");;
 //			session.update(s);
 //			
-			Student s=new Student();
-			s=session.get(Student.class, 2);
-			session.delete(s);
+			//delete  data to database
+//			Student s=new Student();
+//			s=session.get(Student.class, 2);
+//			session.delete(s);
 			
 			
 			session.getTransaction().commit();
