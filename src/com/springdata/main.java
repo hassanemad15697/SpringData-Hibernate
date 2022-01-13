@@ -50,16 +50,21 @@ public class main {
 
 			
 			//getting data
-			Car c = new Car();
-			c.setId(1);
-			c=session.get(Car.class,c.getId());
+//			Car c = new Car();
+//			c.setId(1);
+//			c=session.get(Car.class,c.getId());
+//			
+//			System.out.println(c.getCarName());;
+//			for(Color clr : c.getColors())
+//			{
+//				System.out.println(clr.getColorName());
+//			}
 			
-			System.out.println(c.getCarName());;
-			for(Color clr : c.getColors())
-			{
-				System.out.println(clr.getColorName());
-			}
 			
+			Car c = session.get(Car.class,3);
+			c.setCarName("mercedes-benz");
+			c.getColors().get(0).setColorName("White");
+			session.update(c);
 			
 			
 			

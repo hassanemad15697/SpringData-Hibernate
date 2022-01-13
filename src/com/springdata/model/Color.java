@@ -25,7 +25,7 @@ public class Color {
 	private int id;
 	@Column(name = "colorName")
 	private String colorName;
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(name = "cars_colors", joinColumns = @JoinColumn(name = "colorID"), inverseJoinColumns = @JoinColumn(name = "carID"))
 	List<Car> cars = new ArrayList<Car>();
 	public Color() {
