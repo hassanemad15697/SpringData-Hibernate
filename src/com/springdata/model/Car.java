@@ -30,7 +30,6 @@ public class Car {
 	public Car() {
 	}
 	public Car(String carName) {
-		super();
 		this.carName = carName;
 	}
 
