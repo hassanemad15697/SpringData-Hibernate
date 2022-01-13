@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,10 +23,12 @@ public class Car {
 	private int id;
 	@Column(name = "carName")
 	private String carName;
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinTable(name = "cars_colors",joinColumns = @JoinColumn(name = "carID"),inverseJoinColumns =  @JoinColumn(name = "colorID"))
 	List<Color> colors = new ArrayList<Color>();
 
+	public Car() {
+	}
 	public Car(String carName) {
 		super();
 		this.carName = carName;

@@ -23,30 +23,42 @@ public class main {
 		try {
 			session.beginTransaction();
 			
+			//saving data 
+//			Car BMW = new Car("BMW");
+//			Car VW = new Car("volkswagen");
+//			Car mercedes = new Car("mercedes");
+//			
+//			Color red = new Color("red");
+//			Color blue = new Color("blue");
+//			Color black = new Color("black");
+//			
+//			BMW.getColors().add(red);
+//			BMW.getColors().add(blue);
+//			BMW.getColors().add(black);
+//			
+//			VW.getColors().add(red);
+//			VW.getColors().add(blue);
+//			VW.getColors().add(black);
+//			
+//			mercedes.getColors().add(red);
+//			mercedes.getColors().add(blue);
+//			mercedes.getColors().add(black);
+//			
+//			session.save(BMW);
+//			session.save(VW);
+//			session.save(mercedes);
+
 			
-			Car BMW = new Car("BMW");
-			Car VW = new Car("volkswagen");
-			Car mercedes = new Car("mercedes");
+			//getting data
+			Car c = new Car();
+			c.setId(1);
+			c=session.get(Car.class,c.getId());
 			
-			Color red = new Color("red");
-			Color blue = new Color("blue");
-			Color black = new Color("black");
-			
-			BMW.getColors().add(red);
-			BMW.getColors().add(blue);
-			BMW.getColors().add(black);
-			
-			VW.getColors().add(red);
-			VW.getColors().add(blue);
-			VW.getColors().add(black);
-			
-			mercedes.getColors().add(red);
-			mercedes.getColors().add(blue);
-			mercedes.getColors().add(black);
-			
-			session.save(BMW);
-			session.save(VW);
-			session.save(mercedes);
+			System.out.println(c.getCarName());;
+			for(Color clr : c.getColors())
+			{
+				System.out.println(clr.getColorName());
+			}
 			
 			
 			
