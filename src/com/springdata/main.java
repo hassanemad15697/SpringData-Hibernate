@@ -62,9 +62,7 @@ public class main {
 			
 			
 			Car c = session.get(Car.class,3);
-			c.setCarName("mercedes-benz");
-			c.getColors().get(0).setColorName("White");
-			session.update(c);
+			session.delete(c);
 			
 			
 			

@@ -25,11 +25,14 @@ public class Color {
 	private int id;
 	@Column(name = "colorName")
 	private String colorName;
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, fetch = FetchType.EAGER)
 	@JoinTable(name = "cars_colors", joinColumns = @JoinColumn(name = "colorID"), inverseJoinColumns = @JoinColumn(name = "carID"))
 	List<Car> cars = new ArrayList<Car>();
+
 	public Color() {
 	}
+
 	public Color(String colorName) {
 		super();
 		this.colorName = colorName;
