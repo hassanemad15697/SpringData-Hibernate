@@ -22,7 +22,32 @@ public class main {
 
 		try {
 			session.beginTransaction();
-
+			
+			
+			Car BMW = new Car("BMW");
+			Car VW = new Car("volkswagen");
+			Car mercedes = new Car("mercedes");
+			
+			Color red = new Color("red");
+			Color blue = new Color("blue");
+			Color black = new Color("black");
+			
+			BMW.getColors().add(red);
+			BMW.getColors().add(blue);
+			BMW.getColors().add(black);
+			
+			VW.getColors().add(red);
+			VW.getColors().add(blue);
+			VW.getColors().add(black);
+			
+			mercedes.getColors().add(red);
+			mercedes.getColors().add(blue);
+			mercedes.getColors().add(black);
+			
+			session.save(BMW);
+			session.save(VW);
+			session.save(mercedes);
+			
 			
 			
 			
