@@ -27,7 +27,7 @@ public class Student {
 	private String name;
 
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "student" , fetch = FetchType.LAZY)
-	List<Info> infos=new ArrayList();
+	List<Info> infos=new ArrayList<Info>();
 	
 	
 	
